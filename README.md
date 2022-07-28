@@ -1,4 +1,4 @@
 # scripts
 yay whatever
 
-[] dead asf
+() dead asf
