@@ -1,0 +1,42 @@
+if setfflag then
+    pcall(function() setfflag("NewRunServiceSignals", "true") end)
+    pcall(function() setfflag("NewRunServiceSignals", true) end)   
+end
+
+local BindableEvent = Instance.new("BindableEvent")
+BindableEvent.Name = "AllStepped"
+
+local AllStepped = BindableEvent.Event
+
+if getgenv then
+    getgenv().AllStepped = AllStepped
+    getgenv().allstepped = AllStepped
+end
+
+RunService.PreRender:Connect(function()
+    BindableEvent:Fire()
+end)
+
+RunService.PreAnimation:Connect(function()
+    BindableEvent:Fire()
+end)
+
+RunService.PreSimulation:Connect(function()
+    BindableEvent:Fire()
+end)
+
+RunService.PostSimulation:Connect(function()
+    BindableEvent:Fire()
+end)
+
+RunService.Heartbeat:Connect(function()
+    BindableEvent:Fire()
+end)
+
+RunService.Stepped:Connect(function()
+    BindableEvent:Fire()
+end)
+
+RunService.RenderStepped:Connect(function()
+    BindableEvent:Fire()
+end)
